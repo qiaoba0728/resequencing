@@ -1,0 +1,80 @@
+{
+    "project":{
+        "number":"Q202106004",
+        "type":"转录组标准分析",
+        "species":"柑橘",
+        "sampleForm":"RNA",
+        "platform":"Illumina NovaSeq",
+        "dataSize":"6 Gb/样品",
+        "analyse":"标准生物信息分析",
+        "manager":"贺兴",
+        "finished":"2021-12-27",
+	    "data":["345779982","9","889189","0"]
+    },
+    "geneDetail":{
+        "totalLen":327944670,
+        "totalSeqNum":10,
+        "totalNCounts":26794082,
+        "totalLowCaseCounts":0,
+        "totalGCContent":0.34
+    },
+    "clean":{
+        "desc":[
+            ["P1P_1","LRA50166","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P1P_2","LRA50167","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P1P_3","LRA50168","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P1R_1","LRA50169","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P1R_2","LRA50170","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P1R_3","LRA50171","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P2P_1","LRA50172","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P2P_2","LRA50173","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P2P_3","LRA50174","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P2R_1","LRA50175","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P2R_2","LRA50176","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P2R_3","LRA50177","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P3P_1","LRA50178","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P3P_2","LRA50179","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P3P_3","LRA50180","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P3R_1","LRA50181","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P3R_2","LRA50182","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P3R_3","LRA50183","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P4P_1","LRA50184","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P4P_2","LRA50185","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P4P_3","LRA50186","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P4R_1","LRA50187","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P4R_2","LRA50188","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P4R_3","LRA50189","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P5P_1","LRA50190","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P5P_2","LRA50191","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P5P_3","LRA50192","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P5R_1","LRA50193","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P5R_2","LRA50194","380bp","lllumina NovaSeq","Paired-end 2*150bp"],
+            ["P5R_3","LRA50195","380bp","lllumina NovaSeq","Paired-end 2*150bp"]
+         ]
+    },
+    "diff":{
+        "analyse":{
+            "title":"表达差异分析结果（部分）",
+            "data":[
+                ["Cs4g09780","29016.044019616","4.69639857722804","0","0"],
+                ["Cs5g02100","8.72579031982558","1.96945649461392","0.0269386488536887","0.049468447253088"],
+                ["Cs6g21120","2.01738498242214","-4.33400843990246","0.026651991742434","0.0490337623206842"]
+            ]
+        },
+        "count":{
+            "title":"表达差异分析结果（部分）",
+            "data":[
+                ["P1P_vs_P1R","1992","4510","6402"],
+                ["P1P_vs_P2P","1041","1694","2735"],
+                ["P1P_vs_P2R","2328","4343","6771"]
+            ]
+        }
+    },
+    "analyse":{
+        "site":[
+            ["chr1","Cs1g01070","o"],
+            ["chr2","Cs1g01070","o"],
+            ["chr3","Cs1g01070","o"]
+        ]
+    }
+}
