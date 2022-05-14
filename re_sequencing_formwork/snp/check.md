@@ -1,3 +1,0 @@
-# 3.1 SNP 检测
-
-<font face="微软雅黑" >&emsp;&emsp;SNP(单核苷酸多态性)主要是指在基因组水平上由单个核苷酸的变异所引起的 DNA 序 列多态性，包括同类型碱基之间突变的转换（Transition）、不同类型碱基之间突变的颠换 （Transversion）等。一般来说 SNP 变异转换发生的频率比颠换要高，故转换/颠换（Ti/Tv） 的比例一般大于 1，具体数值和所测物种有关。SNP 检测采用 GenomeAnalysisTKv 4.0 （McKenna A, et al. 2010）软件工具包的 Haplotypecaller 程序进行检测。为了保证 SNP 位点 的准确性，使用 samtool（s Li H, et al. 2009）去重复（Mark Duplicates）、GATK 局部重比对(Local Realignment)以及碱基质量值校正（Base Recalibration）等预处理。再使用 GATK 进行单核 苷酸多态性（Single Nucleotide Polymorphism，SNP）的检测，对 SNP 位点进行过滤，过滤 条件设置为：MQ（RMS Mapping Quality）≥25；QD（Variant Confidence/Quality by Depth） ≥ 2，得到最终的 SNP 位点集。</font><br />
