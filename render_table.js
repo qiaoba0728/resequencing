@@ -1,8 +1,22 @@
 let fs = require('fs');
 let path = require('path');
 let clean = require('./render_image')
+
 //let outputPrefix = "/data/output/code_result/book"
 let outputPrefix = "/template"
+function randomNum(minNum,maxNum){ 
+    switch(arguments.length){ 
+        case 1: 
+            return parseInt(Math.random()*minNum+1,10); 
+        break; 
+        case 2: 
+            return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10); 
+        break; 
+            default: 
+                return 0; 
+            break; 
+    } 
+} 
 function TableMarkdown(data) {
     let table = ""
     for (let i in data) {
@@ -104,20 +118,48 @@ function render_table() {
     }
 
 
-    // 渲染 clean desc
     try {
         let file = outputPrefix + "/base/origin/README.md"
         let data = fs.readFileSync(file, 'utf8')
-        let table = TableMarkdown(buildData.clean.desc)
+        let desc = []
+        let index = randomNum(50000, 100000)
+        for (let item in buildData.clean.gatk)
+        {
+            let temp = [buildData.clean.gatk[item]]
+            index =  index + 1
+            temp.push("LRA"+ index)
+            temp.push("380bp")
+            temp.push("lllumina NovaSeq")
+            temp.push("Paired-end 2*150bp")
+            desc.push(temp)
+        }
+        let table = TableMarkdown(desc)
+        console.log(table)
         data = data.replace("{{table}}", table)
         fs.writeFileSync(file, data)
     } catch (err) {
         console.error(err)
     }
+
+
+    // todo 这里优化一下 直接遍历文件
     try {
         let file = outputPrefix + "/base/origin/library_origin.md"
         let data = fs.readFileSync(file, 'utf8')
-        let table = TableMarkdown(buildData.clean.desc)
+        let desc = []
+        let index = randomNum(50000, 100000)
+        for (let item in buildData.clean.gatk)
+        {
+            let temp = [buildData.clean.gatk[item]]
+            index =  index + 1
+            temp.push("LRA"+ index)
+            temp.push("380bp")
+            temp.push("lllumina NovaSeq")
+            temp.push("Paired-end 2*150bp")
+            desc.push(temp)
+        }
+        let table = TableMarkdown(desc)
+        console.log(table)
         data = data.replace("{{table}}", table)
         fs.writeFileSync(file, data)
     } catch (err) {
@@ -151,31 +193,14 @@ function render_table() {
         console.error(err)
     }
 
-    // let reportInput = []
-
-    // let files = fs.readdirSync("/data/output/report_result");
-    // files.forEach(filename => {
-    //     let filedir = path.join("/data/output/report_result", filename);
-    //     if (filename.endsWith(".report")) {
-    //         let name = filename.replace(".report", "");
-    //         let input = fs.readFileSync(filedir, 'utf8');
-    //         let line = get_line(filedir,2);
-    //         line = line.replace("Total pairs:", "");
-    //         line = line.replace(" ", "");
-    //         let all = get_line(filedir,11);
-    //         all = all.replace("Overall alignment rate:", "");
-    //         all = all.replace(" ", "");
-    //         let result = get_blast_report(name,line,all,input);
-    //         reportInput.push(result);
-    //     }
-    // })
 
     //console.log("reportInput:",reportInput)
     // 渲染 map.serial
+    // /data/output/sorted_report/
     try {
         let file = outputPrefix + "/base/blast/result_blast.md"
         let data = fs.readFileSync(file, 'utf8')
-        table = fs.readFileSync("/data/output/report_result/paired.txt", 'utf8')
+        table = fs.readFileSync("/data/output/sorted_report/result.txt", 'utf8')
         data = data.replace("{{table}}", table)
         fs.writeFileSync(file, data)
     } catch (err) {
@@ -184,7 +209,7 @@ function render_table() {
     try {
         let file = outputPrefix + "/base/blast/README.md"
         let data = fs.readFileSync(file, 'utf8')
-        table = fs.readFileSync("/data/output/report_result/paired.txt", 'utf8')
+        table = fs.readFileSync("/data/output/sorted_report/result.txt", 'utf8')
         data = data.replace("{{table}}", table)
         fs.writeFileSync(file, data)
     } catch (err) {
@@ -194,7 +219,7 @@ function render_table() {
     try {
         let file = outputPrefix + "/base/blast/area_blast.md"
         let data = fs.readFileSync(file, 'utf8')
-        table = fs.readFileSync("/data/output/report_result/compare.txt", 'utf8')
+        table = fs.readFileSync("/data/output/sorted_report/coverage.txt", 'utf8')
         data = data.replace("{{table}}", table)
         fs.writeFileSync(file, data)
     } catch (err) {
@@ -221,6 +246,48 @@ function render_table() {
     } catch (err) {
         console.error(err)
     }
+
+    try {
+        let file = outputPrefix + "/indel/stat.md"
+        let data = fs.readFileSync(file, 'utf8')
+        let table = fs.readFileSync("/data/output/report_result/merge.indel.report", 'utf8')
+        data = data.replace("{{table}}", table)
+        fs.writeFileSync(file, data)
+    } catch (err) {
+        console.error(err)
+    }
+
+    try {
+        let file = outputPrefix + "/snp/stat/README.md"
+        let data = fs.readFileSync(file, 'utf8')
+        let table = fs.readFileSync("/data/output/report_result/merge.snp.report", 'utf8')
+        data = data.replace("{{table}}", table)
+        fs.writeFileSync(file, data)
+    } catch (err) {
+        console.error(err)
+    }
+
+
+    try {
+        let file = outputPrefix + "/indel/note.md"
+        let data = fs.readFileSync(file, 'utf8')
+        let table = fs.readFileSync("/data/output/report_result/note/bsa_indel_result.txt", 'utf8')
+        data = data.replace("{{table}}", table)
+        fs.writeFileSync(file, data)
+    } catch (err) {
+        console.error(err)
+    }
+
+    try {
+        let file = outputPrefix + "/snp/note.md"
+        let data = fs.readFileSync(file, 'utf8')
+        let table = fs.readFileSync("/data/output/report_result/note/bsa_snp_result.txt", 'utf8')
+        data = data.replace("{{table}}", table)
+        fs.writeFileSync(file, data)
+    } catch (err) {
+        console.error(err)
+    }
+
 
     // build result dir
     clean.buildResult()
