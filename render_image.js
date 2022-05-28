@@ -203,6 +203,43 @@ function renderImageDetailEx(names,file,lastIndex,renderTemplate) {
         console.error(err)
     }
 }
+
+function buildResult() {
+    // let index = []
+    // let filePath = "/data/output/re_result"
+    // let files = fs.readdirSync(filePath);
+    // files.forEach(filename => {
+    //     let name = "./result/snp_index/" + filename
+    //     index.push(name)
+    // })
+    // renderResultDetail(outputPrefix + "/6/3/index.md",index,"{{result}}")
+
+    // // 注释文件整理
+    // try {
+    //     let snp = []
+    //     let indel = []
+    //     filePath = "/data/output/note"
+    //     files = fs.readdirSync(filePath);
+    //     files.forEach(filename => {
+    //         if(filename.includes("snp")) {
+    //             let name = "./result/note/" + filename
+    //             snp.push(name)
+    //         }
+    //         if(filename.includes("indel")) {
+    //             let name = "./result/note/" + filename
+    //             indel.push(name)
+    //         }
+    //     })
+    
+    //     renderResultDetail(outputPrefix + "/5/2/index.md",indel,"{{result}}")
+    //     renderResultDetail(outputPrefix + "/4/2/index.md",snp,"{{result}}")
+    // }catch(err){
+    //     console.error(err)
+    // }
+
+}
+
+
 module.exports = {
     copyCleanImageAndRender,
     buildResult

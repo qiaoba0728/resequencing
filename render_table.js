@@ -88,7 +88,23 @@ function render_table() {
     } catch (err) {
         console.error(err)
     }
-
+    try {
+        let file = outputPrefix + "/introduce/README.md"
+        let data = fs.readFileSync(file, 'utf8')
+        data = data.replace("{{project.number}}", buildData.project.number)
+        data = data.replace("{{project.type}}", buildData.project.type)
+        data = data.replace("{{project.species}}", buildData.project.species)
+        data = data.replace("{{project.sampleForm}}", buildData.project.sampleForm)
+        data = data.replace("{{project.platform}}", buildData.project.platform)
+        data = data.replace("{{project.dataSize}}", buildData.project.dataSize)
+        data = data.replace("{{project.analyse}}", buildData.project.analyse)
+        data = data.replace("{{project.finished}}", buildData.project.finished)
+        data = data.replace("{{project.manager}}", buildData.project.manager)
+        fs.writeFileSync(file, data)
+    } catch (err) {
+        console.error(err)
+    }
+    
 
     try {
         let file = outputPrefix + "/introduce/index3.md"
@@ -107,15 +123,15 @@ function render_table() {
     clean.copyCleanImageAndRender()
     //这里需要加入渲染 content部分的图片
 
-    try {
-        let file = outputPrefix + "/base/README.md"
-        let data = fs.readFileSync(file, 'utf8')
-        let table = TableMarkdown(buildData.clean.desc)
-        data = data.replace("{{table}}", table)
-        fs.writeFileSync(file, data)
-    } catch (err) {
-        console.error(err)
-    }
+    // try {
+    //     let file = outputPrefix + "/base/README.md"
+    //     let data = fs.readFileSync(file, 'utf8')
+    //     let table = TableMarkdown(buildData.clean.desc)
+    //     data = data.replace("{{table}}", table)
+    //     fs.writeFileSync(file, data)
+    // } catch (err) {
+    //     console.error(err)
+    // }
 
 
     try {
@@ -162,6 +178,12 @@ function render_table() {
         console.log(table)
         data = data.replace("{{table}}", table)
         fs.writeFileSync(file, data)
+
+        file = outputPrefix + "/base/README.md"
+        data = fs.readFileSync(file, 'utf8')
+        data = data.replace("{{table}}", table)
+        fs.writeFileSync(file, data)
+
     } catch (err) {
         console.error(err)
     }
