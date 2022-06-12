@@ -1,5 +1,5 @@
 {
-  "title": "转录组测序分析结题报告",
+  "title": "重测序变异检测分析结题报告",
   "plugins": [
     "mermaid-gb3",
     "popup",
